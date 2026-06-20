@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis 204 - Sitio Oficial</title>
+    <style>
+        /* Paleta de colores institucional basada en DGETI */
+        :root {
+            --guinda: #800020;
+            --guinda-oscuro: #590016;
+            --dorado: #b89353;
+            --oscuro: #2d3748;
+            --gris-claro: #f7fafc;
+            --blanco: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--gris-claro);
+            color: var(--oscuro);
+            line-height: 1.6;
+        }
+
+        /* --- ENCABEZADO --- */
+        header {
+            background-color: var(--blanco);
+            border-bottom: 4px solid var(--dorado);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-texto h1 {
+            font-size: 22px;
+            color: var(--guinda);
+            font-weight: bold;
+        }
+
+        .logo-texto p {
+            font-size: 11px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--oscuro);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--guinda);
+        }
+
+        /* --- SECCIÓN HÉROE --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200') no-repeat center center/cover;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            color: var(--blanco);
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--guinda);
+            color: var(--blanco);
+            padding: 12px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 2px solid var(--dorado);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--guinda-oscuro);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIÓN CONVOCATORIAS --- */
+        .seccion {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-seccion {
+            font-size: 28px;
+            color: var(--guinda);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--dorado);
+            padding-left: 15px;
+        }
+
+        .grid-avisos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+      .tarjeta {
+            background: var(--blanco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-5px);
+        }
+
+        .tarjeta-banner {
+            background-color: var(--guinda);
+            color: var(--blanco);
+            padding: 15px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tarjeta-banner.registro { background-color: #2b6cb0; }
+        .tarjeta-banner.comunidad { background-color: #2f855a; }
+
+        .tarjeta-cuerpo {
+            padding: 25px;
+        }
+
+        .tarjeta-cuerpo h3 {
+            margin-bottom: 12px;
+            color: var(--oscuro);
+        }
+
+        .tarjeta-cuerpo ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        /* --- FOOTER / DATOS DE CONTACTO --- */
+        footer {
+            background-color: var(--oscuro);
+            color: #cbd5e0;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--blanco);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--dorado);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .footer-col p {
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #4a5568;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; gap: 15px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            .hero-content h2 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV PRINCIPAL -->
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <!-- Espacio listo para colocar el logo redondo de DGETI -->
+                <div style="width: 50px; height: 50px; background: var(--guinda); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border: 2px solid var(--dorado)">204</div>
+                <div class="logo-texto">
+                    <h1>CBTis No. 204</h1>
+                    <p>Tlalpujahua, Michoacán</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#convocatorias">Avisos</a></li>
+                    <li><a href="#oferta">Oferta Educativa</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO / BIENVENIDA -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h2>Construye tu futuro hoy y únete a la gran familia</h2>
+            <p>Bachillerato tecnológico bivalente para integrarte al sector profesional o continuar tus estudios superiores.</p>
+            <a href="#convocatorias" class="cta-btn">Ver Convocatorias 2026</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN AVISOS Y CONVOCATORIAS -->
+    <section class="seccion" id="convocatorias">
+        <h2 class="titulo-seccion">Últimas Noticias y Eventos</h2>
+        
+        <div class="grid-avisos">
+          <!-- Tarjeta: Entrega de Fichas (Datos de la imagen 1000134259.jpg) -->
+            <div class="tarjeta">
+                <div class="tarjeta-banner">Convocatoria 2026</div>
+                <div class="tarjeta-cuerpo">
+                    <h3>Entrega de Fichas</h3>
+                    <p><strong>Inicio:</strong> A partir del 16 de Febrero de 2026.</p>
+                    <p><strong>Horario:</strong> 8:00 a 13:00 horas en Control Escolar.</p>
+                    <br>
+                    <p><strong>Requisitos principales:</strong></p>
+                    <ul>
+                        <li>Constancia de secundaria original.</li>
+                        <li>Copia de la CURP y Acta de nacimiento.</li>
+                        <li>Comprobante de domicilio reciente.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Tarjeta: Seguimiento de Egresados (Datos de la imagen 1000134260.jpg) -->
+            <div class="tarjeta">
+                <div class="tarjeta-banner registro">Comunidad Egresados</div>
+                <div class="tarjeta-cuerpo">
+                    <h3>Seguimiento del Talento DGETI</h3>
+                    <p>¡Hola, egresado! Tu viaje después del CBTis nos interesa y nos inspira. Queremos construir el mapa del talento.</p>
+                    <br>
+                    <p>Si eres de las generaciones <strong>2019-2022, 2020-2023 o 2021-2024</strong>, participa compartiendo tu historia profesional.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta: Servicios Sociales (Datos de la imagen 1000134262.jpg) -->
+            <div class="tarjeta">
+                <div class="tarjeta-banner comunidad">DGETI en tu Comunidad</div>
+                <div class="tarjeta-cuerpo">
+                    <h3>Servicios y Apoyo Comunitario</h3>
+                    <p>Como parte de nuestro compromiso social, el plantel realiza brigadas de servicios de salud, orientación y soporte en apoyo a la comunidad de Tlalpujahua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CONTACTO (Datos de la imagen 1000134258.jpg y 1000134259.jpg) -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Ubicación</h4>
+                <p>Km 39 carr. Maravatio-Tlalpujahua,</p>
+                <p>Tlalpujahua de Rayón, México, 61060</p>
+                <p>Tlalpujahua, Michoacán.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>📞 Teléfono: 711 158 0213</p>
+                <p>✉️ Correo Oficial:</p>
+                <p style="font-size: 12px; color: #a0aec0;">cbtis204.subdir@dgeti.sems.gob.mx</p>
+            </div>
+            <div class="footer-col">
+                <h4>Beneficios del Plantel</h4>
+                <p>• Bachillerato Bivalente</p>
+                <p>• Título y Cédula Profesional</p>
+                <p>• Acceso a Beca Benito Juárez</p>
+                <p>• Modelo DUAL</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Centro de Bachillerato Tecnológico, Industrial y de Servicios No. 204 | Sitio de Práctica Web</p>
+        </div>
+    </footer>
+
+</body>
+</html>
